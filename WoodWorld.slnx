@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitignore" />
+    <File Path="features.md" />
+  </Folder>
+  <Project Path="../../../../../../../../Code/C#/WoodWorld/WoodWorld.Api/WoodWorld.Api.csproj" />
+  <Project Path="../../../../../../../../Code/C#/WoodWorld/WoodWorld.Application/WoodWorld.Application.csproj" />
+  <Project Path="../../../../../../../../Code/C#/WoodWorld/WoodWorld.Domain/WoodWorld.Domain.csproj" />
+  <Project Path="../../../../../../../../Code/C#/WoodWorld/WoodWorld.Infrastructure/WoodWorld.Infrastructure.csproj" />
+  <Project Path="../../../../../../../../Code/C#/WoodWorld/WoodWorld/WoodWorld.csproj" />
+</Solution>

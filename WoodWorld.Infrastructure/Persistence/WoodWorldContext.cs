@@ -6,7 +6,7 @@ using WoodWorld.Domain;
 
 namespace WoodWorld.Infrastructure.Persistence
 {
-    internal class WoodWorldContext : DbContext
+    public class WoodWorldContext : DbContext
     {
         public WoodWorldContext(DbContextOptions<WoodWorldContext> options)
             : base(options)

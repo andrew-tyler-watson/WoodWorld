@@ -1,27 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace WoodWorld.Domain
+﻿namespace WoodWorld.Domain
 {
     public sealed class User
     {
-        public Guid Id { get; private set; } = Guid.NewGuid();
+        public User()
+        {
 
-        public string Email { get; private set; }
-        public string FullName { get; private set; }
+        }
+        public Guid Id { get; set; } = Guid.NewGuid();
 
-        public bool IsActive { get; private set; } = true;
+        public string Email { get; set; }
+        public string Name { get; set; }
 
-        public IReadOnlyCollection<RentalRecord> Rentals => _rentals;
+        public bool IsActive { get; set; } = true;
 
-        private readonly List<RentalRecord> _rentals = new();
+        public IReadOnlyCollection<Rental> Rentals => _rentals;
 
-        private User() { } // For ORM
+        public DateTimeOffset CreatedAt { get; set; }
 
+        private readonly List<Rental> _rentals = new();
         public User(string email, string fullName)
         {
             Email = email ?? throw new ArgumentNullException(nameof(email));
-            FullName = fullName ?? throw new ArgumentNullException(nameof(fullName));
+            Name = fullName ?? throw new ArgumentNullException(nameof(fullName));
         }
 
         public void Deactivate()

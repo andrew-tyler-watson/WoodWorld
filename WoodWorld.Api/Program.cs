@@ -1,3 +1,4 @@
+using WoodWorld.Application.Services;
 using WoodWorld.Infrastructure.Persistence;
 
 namespace WoodWorld.Api
@@ -14,7 +15,12 @@ namespace WoodWorld.Api
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
             builder.Services.AddWoodWorldContext(builder.Configuration);
+            builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddMediatR(
+                cfg =>
+                    cfg.RegisterServicesFromAssemblyContaining<IToolService>()
+                );
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -32,14 +38,14 @@ namespace WoodWorld.Api
 
             app.UseAuthorization();
 
-            
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
-                    c.RoutePrefix = "swagger"; // default, optional
-                });
-            
+
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API v1");
+                c.RoutePrefix = "swagger"; // default, optional
+            });
+
 
 
             app.MapControllers();

@@ -1,8 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using WoodWorld.Domain;
 
 namespace WoodWorld.Infrastructure.Persistence.Configurations
@@ -20,6 +17,12 @@ namespace WoodWorld.Infrastructure.Persistence.Configurations
                      .HasMaxLength(50);
             builder.Property(t => t.IsActive)
                      .IsRequired();
+            builder.Property(t => t.DailyRate)
+                     .IsRequired()
+                     .HasColumnType("decimal(18,2)");
+            builder.Property(t => t.CreatedAt)
+                     .IsRequired()
+                     .HasColumnType("datetimeoffset");
             builder.HasMany(t => t.Rentals)
                      .WithOne(r => r.Tool)
                      .HasForeignKey(r => r.ToolId);

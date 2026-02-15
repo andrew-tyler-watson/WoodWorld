@@ -1,15 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using WoodWorld.Domain;
 
 namespace WoodWorld.Infrastructure.Persistence.Configurations
 {
-    internal class RentalRecordConfiguration : IEntityTypeConfiguration<RentalRecord>
+    internal class RentalRecordConfiguration : IEntityTypeConfiguration<Rental>
     {
-        public void Configure(EntityTypeBuilder<RentalRecord> builder)
+        public void Configure(EntityTypeBuilder<Rental> builder)
         {
             builder.HasKey(r => r.Id);
             builder.Property(r => r.RentedAt).IsRequired();

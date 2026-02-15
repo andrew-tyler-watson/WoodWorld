@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using WoodWorld.Domain;
 
 namespace WoodWorld.Infrastructure.Persistence
@@ -20,6 +17,6 @@ namespace WoodWorld.Infrastructure.Persistence
 
         public DbSet<User> Users { get; set; }
         public DbSet<Tool> Tools { get; set; }
-        public DbSet<RentalRecord> RentalRecords { get; set; }
+        public DbSet<Rental> Rentals { get; set; }
     }
 }

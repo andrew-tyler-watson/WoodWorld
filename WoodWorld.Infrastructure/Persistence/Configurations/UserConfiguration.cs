@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using WoodWorld.Domain;
 
 namespace WoodWorld.Infrastructure.Persistence.Configurations
@@ -14,9 +11,11 @@ namespace WoodWorld.Infrastructure.Persistence.Configurations
             builder.Property(u => u.Email)
                 .IsRequired()
                 .HasMaxLength(255);
-            builder.Property(u => u.FullName)
+            builder.Property(u => u.Name)
                 .IsRequired()
                 .HasMaxLength(255);
+            builder.Property(u => u.CreatedAt)
+                .IsRequired();
             builder.Property(u => u.IsActive)
                 .IsRequired();
             builder.HasMany(u => u.Rentals)

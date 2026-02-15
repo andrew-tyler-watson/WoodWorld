@@ -1,22 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using WoodWorld.Domain;
-
-namespace WoodWorld.Domain
+﻿namespace WoodWorld.Domain
 {
     public sealed class Tool
     {
-        public Guid Id { get; private set; } = Guid.NewGuid();
+        public Tool()
+        {
 
-        public string Name { get; private set; }
-        public string Category { get; private set; }
+        }
+        public Guid Id { get; set; } = Guid.NewGuid();
 
-        public bool IsActive { get; private set; } = true;
+        public string Name { get; set; }
+        public string Category { get; set; }
 
-        public IReadOnlyCollection<RentalRecord> Rentals => _rentals;
-        private readonly List<RentalRecord> _rentals = new();
+        public bool IsActive { get; set; } = true;
 
-        private Tool() { } // For ORM
+        public IReadOnlyCollection<Rental> Rentals => _rentals;
+
+        public decimal DailyRate { get; set; }
+        public DateTimeOffset CreatedAt { get; set; }
+
+        private readonly List<Rental> _rentals = new();
 
         public Tool(string name, string category)
         {
